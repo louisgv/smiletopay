@@ -1,0 +1,11 @@
+applications:
+- services:
+  - Concept Insights-0b
+  name: smiletopay
+  host: smiletopay
+  command: nodemon lab.js
+  path: .
+  domain: mybluemix.net
+  instances: 1
+  memory: 512M
+  disk_quota: 512M

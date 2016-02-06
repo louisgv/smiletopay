@@ -1,0 +1,23 @@
+{
+  "name": "smiletopay",
+  "version": "1.0.0",
+  "description": "Smile to Pay",
+  "main": "lab.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "brainstorm",
+    "sastisfaction"
+  ],
+  "author": "lab",
+  "license": "SEE ../LICENSE",
+  "dependencies": {
+    "nodemon": "^1.7.1",
+    "project-oxford": "^1.1.0",
+    "request": "^2.65.0",
+    "restify": "^4.0.3",
+    "socket.io": "^1.3.7",
+    "watson-developer-cloud": "^0.10.6"
+  }
+}
