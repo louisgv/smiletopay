@@ -40,7 +40,9 @@ var request = require('superagent');
 
 request.get('http://api.reimaginebanking.com/atms?key=' + key.cobank)
   .end(function (res) {
+
     console.log(res);
+
   });
 
 
@@ -49,7 +51,7 @@ function imageHandler(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'X-Requested-With');
   // var image = req.body;
-  console.log(req.body);
+  // console.log(req.body);
   // Send back the value they posted
   // var image = req.body.json; /* whatever */
   var data = JSON.parse(req.body.json);
@@ -61,7 +63,7 @@ function imageHandler(req, res, next) {
   // res.send(201, base64data);
 
   oxfordEmotion.recognize("image", buf, function (cb) {
-    console.log(cb);
+    // console.log(cb);
 
     res.send(201, cb);
   });

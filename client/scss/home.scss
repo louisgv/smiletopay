@@ -16,4 +16,11 @@
     filter:FlipH;
     -ms-filter: 'FlipH';
   }
+
+  video {
+    transform-origin: center !important;
+    transform: rotateY(180deg);
+    -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+    -moz-transform:rotateY(180deg);
+  }
 }
