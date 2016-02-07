@@ -22,15 +22,16 @@
 
       <div class="col col-50">
         <div class="card">
-          <img class="full-width" ng-src="{{memes[memeIndex].instanceimageUrl}}"/>
+          <img class="full-width" ng-src="{{memes[memeIndex].instanceimageUrl}}"/><!-- Flixitar -->
         </div>
       </div>
+
     </div>
 
     <div class="row">
       <div class="full-width text-center card">
         <div class="item item-text-wrap">
-          Feeling {{feeling}} ?
+          Feeling {{feeling || 'neutral'}} ?
         </div>
       </div>
     </div>

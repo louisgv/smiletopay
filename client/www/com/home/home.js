@@ -28,8 +28,8 @@ function HomeCtrl($scope, $interval, $http, $ionicPopup, $timeout) {
   //*//
   var myPopup;
   // TODO: Change this to 1800
-  // var defaultT = 999999;
-  var defaultT = 1800;
+  var defaultT = 999999;
+  // var defaultT = 1800;
 
   var t = defaultT;
 
@@ -58,7 +58,7 @@ function HomeCtrl($scope, $interval, $http, $ionicPopup, $timeout) {
                   // An elaborate, custom popup
                   myPopup = $ionicPopup.show({
                     // template: '<input type="password" ng-model="data.wifi">',
-                    title: 'You looks great today',
+                    title: 'You look great today',
                     subTitle: 'Meme on',
                     scope: $scope,
                   });
