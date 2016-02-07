@@ -4,18 +4,17 @@
     Funny Flix
   </ion-nav-title>
 
-  <ion-content class="has-header">
+  <ion-content class="has-header app-bg">
 
     <div class="row">
-      <!-- <img src="http://www.online-image-editor.com//styles/2014/images/example_image.png" alt="" /> -->
 
       <div class="col col-50">
-        <ng-camera class="full-width flip-horizontal" output-height="360" output-width="360" image-format="jpeg" jpeg-quality="100">
+        <ng-camera class="full-width flip-horizontal" output-height="360" output-width="360" image-format="jpeg" jpeg-quality="100" posid="homecam">
         </ng-camera>
       </div>
 
       <div class="col col-50">
-        <img class="full-width" ng-src="{{memes[memeIndex].imageUrl}}" alt="" />
+        <img class="full-width" ng-src="{{memes[memeIndex].instanceimageUrl}}" alt="" />
       </div>
     </div>
 

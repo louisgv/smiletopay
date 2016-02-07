@@ -13,6 +13,7 @@
   "author": "lab",
   "license": "SEE ../LICENSE",
   "dependencies": {
+    "node-fetch": "^1.3.3",
     "node-oxford-emotion": "^1.0.4",
     "nodemon": "^1.7.1",
     "project-oxford": "^1.1.0",

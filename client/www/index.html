@@ -32,6 +32,7 @@
 
   <!-- com's js -->
   <script src="com/home/home.js"></script>
+  <script src="com/payment/payment.js"></script>
 
   <!-- index's js -->
   <script src="index.js"></script>
@@ -39,12 +40,21 @@
 
 <body ng-app="app">
   <ion-nav-bar class="bar-dark">
-    <ion-nav-buttons side="left">
-      <a nav-direction="back" href="#/">
-        <button class="button button-clear icon-left ion-grid">
+    <ion-nav-buttons side="primary">
+      <a ng-href="#/">
+        <button class="button button-clear icon-left ion-happy">
         </button>
       </a>
+      <a ng-href="#/pay">
+        <button class="button button-clear icon-left ion-card">
+        </button>
+      </a>
+      <button class="button button-clear icon-left ion-ios-game-controller-a" href="#/game">
+        <a href="#/game"></a>
+      </button>
     </ion-nav-buttons>
+
+
   </ion-nav-bar>
 
   <ion-nav-view>

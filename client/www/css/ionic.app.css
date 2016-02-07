@@ -9111,6 +9111,11 @@ a.button {
   /* Safari and Chrome */
   -moz-transform: rotateY(180deg); }
 
+.app-bg {
+  background: url(../assets/img/bg.png);
+  background-size: cover;
+  background-repeat: no-repeat; }
+
 a {
   text-decoration: none; }
 

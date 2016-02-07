@@ -11,7 +11,8 @@ angular.module('app', [
   ])
   .config(config)
   .run(run)
-  .controller('HomeCtrl', HomeCtrl);
+  .controller('HomeCtrl', HomeCtrl)
+  .controller('PaymentCtrl', PaymentCtrl);
 
 function config($stateProvider, $urlRouterProvider) {
 
@@ -23,6 +24,11 @@ function config($stateProvider, $urlRouterProvider) {
       url: '/',
       templateUrl: 'com/home/home.html',
       controller: 'HomeCtrl'
+    })
+    .state('pay', {
+      url: '/pay',
+      templateUrl: 'com/payment/payment.html',
+      controller: 'PaymentCtrl'
     });
   // .state('app.deal', {
   //   url: '/deallists/:dealId',

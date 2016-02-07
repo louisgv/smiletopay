@@ -10,6 +10,7 @@ var oxford = require('project-oxford');
 var key = require('./key.json');
 
 var faceClient = new oxford.Client(key.ms.face);
+
 var oxfordEmotion = require("node-oxford-emotion")(key.ms.emotion);
 
 server.use(restify.bodyParser());
@@ -17,7 +18,6 @@ server.use(restify.bodyParser());
 server.listen(process.env.VCAP_APP_PORT || 1314, function () {
   console.log('%s listening at %s', server.name, server.url);
 });
-
 
 function infoConcept(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -35,16 +35,6 @@ function infoConcept(req, res, next) {
       res.send(200, response);
     });
 }
-
-var request = require('superagent');
-
-request.get('http://api.reimaginebanking.com/atms?key=' + key.cobank)
-  .end(function (res) {
-
-    console.log(res);
-
-  });
-
 
 function imageHandler(req, res, next) {
   // Get the first_name value from the POSTed data
@@ -67,10 +57,19 @@ function imageHandler(req, res, next) {
 
     res.send(201, cb);
   });
-
 }
 
+var users = require('./users.json');
 
+var nessie = require('./modulas/nessie');
+
+// fetchCustomerInfo(users.customers[0].id);
+// fetchMerchantInfo(users.merchants[0].id);
+// nessie.getCustomerInfo(users.customers[0].id);
+
+
+
+// server.get('/')
 server.post('/u', imageHandler);
 server.get('/i:b', infoConcept);
 

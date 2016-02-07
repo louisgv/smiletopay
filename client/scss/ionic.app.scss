@@ -24,6 +24,12 @@ $ionicons-font-path: '../lib/ionic/fonts' !default;
 
 // Global Rules here:
 
+.app-bg {
+  background: url(../assets/img/bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 a {
   text-decoration: none;
 }
