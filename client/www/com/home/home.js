@@ -1,11 +1,5 @@
 'use strict()';
 
-function switchImage($scope, $http, scores) {
-  if(scores.happiness >= 0.27) {
-    $scope.memeIndex = $scope.randomIndex($scope.memes);
-  }
-}
-
 // var memeAPI = "https://api.imgflip.com/get_memes";
 
 // var memeAPI = "http://version1.api.memegenerator.net/Instances_Select_ByPopular?languageCode=en&pageSize=24"
@@ -33,7 +27,12 @@ function HomeCtrl($scope, $interval, $http, $ionicPopup, $timeout) {
 
   //*//
   var myPopup;
-  var t = 1800;
+  // TODO: Change this to 1800
+  // var defaultT = 999999;
+  var defaultT = 1800;
+
+  var t = defaultT;
+
   Webcam.on("load", function () {
       var stream = $interval(function () {
         Webcam.snap(function (data_uri) {
@@ -60,18 +59,18 @@ function HomeCtrl($scope, $interval, $http, $ionicPopup, $timeout) {
                   myPopup = $ionicPopup.show({
                     // template: '<input type="password" ng-model="data.wifi">',
                     title: 'You looks great today',
-                    subTitle: 'Thank you for your business',
+                    subTitle: 'Meme on',
                     scope: $scope,
                   });
 
                   $timeout(function () {
                     myPopup.close(); //close the popup after 3 seconds for some reason
 
-                    switchImage($scope, $http, scores);
+                    $scope.memeIndex = $scope.randomIndex($scope.memes);
 
                     // Dosomething here
 
-                    t = 1800;
+                    t = defaultT;
                     myPopup = null;
                   }, 3600);
                 }
@@ -88,6 +87,7 @@ function HomeCtrl($scope, $interval, $http, $ionicPopup, $timeout) {
                 }
               }
             })
+
         })
       }, t);
     })

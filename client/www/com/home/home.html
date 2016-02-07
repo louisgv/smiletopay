@@ -9,37 +9,31 @@
     <div class="row">
 
       <div class="col col-50">
-        <ng-camera class="full-width flip-horizontal" output-height="360" output-width="360" image-format="jpeg" jpeg-quality="100" posid="homecam">
-        </ng-camera>
+        <div class="card">
+          <div class="item">
+            Smile for Meme!
+          </div>
+        </div>
+        <div class="card">
+          <ng-camera class="full-width flip-horizontal" output-height="360" output-width="360" image-format="jpeg" jpeg-quality="100" posid="homecam">
+          </ng-camera>
+        </div>
       </div>
 
       <div class="col col-50">
-        <img class="full-width" ng-src="{{memes[memeIndex].instanceimageUrl}}" alt="" />
+        <div class="card">
+          <img class="full-width" ng-src="{{memes[memeIndex].instanceimageUrl}}"/>
+        </div>
       </div>
     </div>
 
     <div class="row">
-      <div class="full-width text-center">
-        Feeling {{feeling}} ?
+      <div class="full-width text-center card">
+        <div class="item item-text-wrap">
+          Feeling {{feeling}} ?
+        </div>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col col-20">
-        Low
-      </div>
-      <div class="col col-20">
-
-      </div>
-      <div class="col col-20">
-        Medium
-      </div>
-      <div class="col col-20">
-
-      </div>
-      <div class="col col-20">
-        High
-      </div>
-    </div>
   </ion-content>
 </ion-view>

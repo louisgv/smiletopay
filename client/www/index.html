@@ -26,6 +26,9 @@
   <script src="lib/webcamjs/webcam.min.js" charset="utf-8"></script>
   <script src="lib/ng-camera/dist/ng-camera.js" charset="utf-8"></script>
 
+  <!-- HOLY FUCK JQUERY -->
+  <script src="https://cdn.jsdelivr.net/g/jquery@3.0.0-beta1,buzz@1.1.0,jquery.transition@1.7.2"></script>
+
   <!-- fac's js -->
   <script src="fac/socket.js"></script>
   <script src="fac/database.js"></script>
@@ -33,6 +36,7 @@
   <!-- com's js -->
   <script src="com/home/home.js"></script>
   <script src="com/payment/payment.js"></script>
+  <script src="com/game/game.js"></script>
 
   <!-- index's js -->
   <script src="index.js"></script>
@@ -49,9 +53,10 @@
         <button class="button button-clear icon-left ion-card">
         </button>
       </a>
-      <button class="button button-clear icon-left ion-ios-game-controller-a" href="#/game">
-        <a href="#/game"></a>
-      </button>
+      <a ng-href="#/game">
+        <button class="button button-clear icon-left ion-ios-game-controller-a">
+        </button>
+      </a>
     </ion-nav-buttons>
 
 

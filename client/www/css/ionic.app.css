@@ -9089,13 +9089,6 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-.home .full-width {
-  width: 100%;
-  max-height: 80vh; }
-
-.home .text-center {
-  text-align: center; }
-
 .home .flip-horizontal {
   -moz-transform: scaleX(-1);
   -o-transform: scaleX(-1);
@@ -9111,10 +9104,44 @@ a.button {
   /* Safari and Chrome */
   -moz-transform: rotateY(180deg); }
 
+.payment .flip-horizontal {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: 'FlipH'; }
+
+.payment video {
+  transform-origin: center !important;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  /* Safari and Chrome */
+  -moz-transform: rotateY(180deg); }
+
+.game .flip-horizontal {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: 'FlipH'; }
+
+.game video {
+  transform-origin: center !important;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  /* Safari and Chrome */
+  -moz-transform: rotateY(180deg); }
+
 .app-bg {
   background: url(../assets/img/bg.png);
   background-size: cover;
   background-repeat: no-repeat; }
+
+.full-width {
+  width: 100%;
+  max-height: 80vh; }
 
 a {
   text-decoration: none; }

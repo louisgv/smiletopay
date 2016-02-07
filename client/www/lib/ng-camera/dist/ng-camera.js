@@ -7,7 +7,7 @@ function (t) {
 
   function e(t, e) {
     function o(o) {
-      angular.element("#" + o.posid)
+      angular.element(document)
         .ready(function () {
           o.libraryLoaded = !1, o.cameraLive = !1, o.activeCountdown = !1, void 0 === o.viewerHeight && (o.viewerHeight = "auto"), void 0 === o.viewerWidth && (o.viewerWidth = "auto"), void 0 === o.outputHeight && (o.outputHeight = o.viewerHeight), void 0 === o.outputWidth && (o.outputWidth = o.viewerWidth), (void 0 === o.cropHeight || void 0 === o.cropWidth) && (o.cropHeight = !1, o.cropWith = !1), Webcam.set({
             width: o.viewerWidth,
@@ -74,7 +74,7 @@ function (t) {
         snapshot: "=",
         posid: "@"
       },
-      template: ['<div class="ng-camera">', '<div class="ng-camera-countdown" ng-if="countdown" ng-show="activeCountdown">', '<p class="tick">{{countdownText}}</p>', "</div>", '<div class="ng-camera-stack">', '<img class="ng-camera-overlay" ng-if="overlayUrl" ng-show="cameraLive" ng-src="{{overlayUrl}}" alt="overlay">', '<div ng-attr-id="{{posid}}"></div>', "</div>", "</div>"].join(""),
+      template: ['<div class="ng-camera">', '<div class="ng-camera-countdown" ng-if="countdown" ng-show="activeCountdown">', '<p class="tick">{{countdownText}}</p>', "</div>", '<div class="ng-camera-stack">', '<img class="ng-camera-overlay" ng-if="overlayUrl" ng-show="cameraLive" ng-src="{{overlayUrl}}" alt="overlay">', '<div id="{{posid}}"></div>', "</div>", "</div>"].join(""),
       link: o
     }
   }

@@ -23,8 +23,6 @@ function infoConcept(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'X-Requested-With');
 
-  var binary = res.params.b;
-
   faceClient.face.detect({
       path: './assets/0.jpg',
       analyzesAge: true,
@@ -59,19 +57,68 @@ function imageHandler(req, res, next) {
   });
 }
 
+
+
 var users = require('./users.json');
 
 var nessie = require('./modulas/nessie');
 
-// fetchCustomerInfo(users.customers[0].id);
-// fetchMerchantInfo(users.merchants[0].id);
+// nessie.fetchCustomerInfo(users.customers[0].id);
+// nessie.fetchMerchantInfo(users.merchants[0].id);
 // nessie.getCustomerInfo(users.customers[0].id);
 
+var c = users.customers[0];
+var m = users.merchants[0];
 
+var ci, mi;
 
-// server.get('/')
+function initTransaction(req, res, next) {
+
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'X-Requested-With');
+
+  nessie.getCustomerInfo(c.id, function (customerInfo) {
+    ci = JSON.parse(customerInfo);
+
+    nessie.fetchMerchantInfo(m.id, function (merchantInfo) {
+      mi = JSON.parse(merchantInfo);
+      var data = {
+        customer: ci,
+        merchant: mi
+      };
+      res.send(200, data);
+    });
+
+  });
+}
+
+function makeTransaction(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'X-Requested-With');
+
+  var amount = req.params.a;
+
+  nessie.getCustomerInfo(c.id, function (customerInfo) {
+    ci = JSON.parse(customerInfo);
+
+    // console.log(ci);
+
+    var cAccount = ci[0];
+
+    // console.log(cAccount);
+    // res.send(201, cAccount);
+    nessie.makePurchase(cAccount, m, amount, function (transactionStatus) {
+      res.send(201, JSON.parse(transactionStatus));
+    });
+
+  });
+
+}
+
+server.get('/mp/:a', makeTransaction);
+server.get('/it', initTransaction);
 server.post('/u', imageHandler);
-server.get('/i:b', infoConcept);
+server.get('/i', infoConcept);
 
 io.sockets.on('connection', function (socket) {
   console.log('connection', socket.handshake.address);
