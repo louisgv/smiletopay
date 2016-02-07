@@ -4,12 +4,13 @@ var restify = require('restify');
 var server = restify.createServer();
 var io = socketio.listen(server.server);
 
-var minerva = require('./modulas/minerva');
+// var minerva = require('./modulas/minerva');
 var oxford = require('project-oxford');
 
 var key = require('./key.json');
 
 var faceClient = new oxford.Client(key.ms.face);
+var oxfordEmotion = require("node-oxford-emotion")(key.ms.emotion);
 
 server.use(restify.bodyParser());
 
@@ -22,23 +23,53 @@ function infoConcept(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'X-Requested-With');
 
-  client.face.detect({
-      path: 'assets/0.jpg',
+  var binary = res.params.b;
+
+  faceClient.face.detect({
+      path: './assets/0.jpg',
       analyzesAge: true,
       analyzesGender: true
     })
     .then(function (response) {
-      console.log('The age is: ' + response[0].attributes.age);
-      console.log('The gender is: ' + response[0].attributes.gender);
-      res.send(200, JSON.parse(response));
+
+      res.send(200, response);
     });
 }
 
-server.get('/f/:i', postImage);
+function imageHandler(req, res, next) {
+  // Get the first_name value from the POSTed data
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'X-Requested-With');
+  // var image = req.body;
+  console.log(req.body);
+  // Send back the value they posted
+  // var image = req.body.json; /* whatever */
+  var data = JSON.parse(req.body.json);
+  var img = data.data;
+  // res.send(201, img);
+  var base64data = img.replace(/^data:image\/png;base64,|^data:image\/jpeg;base64,|^data:image\/jpg;base64,|^data:image\/bmp;base64,/, '');
+  //
+  var buf = new Buffer(base64data, 'base64');
+  // res.send(201, base64data);
 
-server.get('/i', infoConcept);
+  oxfordEmotion.recognize("image", buf, function (cb) {
+    console.log(cb);
+
+    res.send(201, cb);
+  });
+
+}
+
+
+server.post('/u', imageHandler);
+server.get('/i:b', infoConcept);
 
 io.sockets.on('connection', function (socket) {
-  // Define a helper function to return the count.
+  console.log('connection', socket.handshake.address);
+  // io.emit('CONNECTED');
+  socket.on('Receive Image Data', function (data, callback) {
+    console.log(data);
 
+    callback("Approved");
+  });
 });

@@ -1,7 +1,5 @@
 applications:
-- services:
-  - Concept Insights-0b
-  name: smiletopay
+- name: smiletopay
   host: smiletopay
   command: nodemon lab.js
   path: .
