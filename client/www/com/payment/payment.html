@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<ion-view class="payment">
+  <ion-nav-title class="logo">
+    Smile to Pay
+  </ion-nav-title>
+
+  <ion-content class="has-header">
+    <div class="row" ng-show="paymentDone">
+      <!-- Merchant -->
+      <!-- Amount -->
+      <!-- Date -->
+    </div>
+
+    <div class="row" ng-show="!paymentDone">
+      <div class="col col-50">
+        <div class="card">
+          <div class="item">
+            Smile to Pay!
+          </div>
+        </div>
+        <div class="card item-positive">
+          <ng-camera class="full-width flip-horizontal" output-height="360" output-width="360" image-format="jpeg" jpeg-quality="100" posid="paycam">
+          </ng-camera>
+        </div>
+      </div>
+
+      <div class="col col-50">
+        <div class="list card">
+          <div class="item item-divider">
+            <h2>
+              {{customer.nickname}}
+            </h2>
+          </div>
+
+          <div class="item item-icon-right item-text-wrap">
+            <i class="icon ion-card"></i> Balance: {{customer.balance}}
+          </div>
+        </div>
+
+        <div class="list card">
+          <div class="item item-divider">
+            <h2>
+              Item to Purchase: {{purchase.item}}
+            </h2>
+          </div>
+
+          <div class="item item-icon-right item-text-wrap">
+            <i class="icon ion-social-usd"></i> Price: {{purchase.price}}
+          </div>
+
+        </div>
+
+        <div class="list card">
+          <div class="item item-divider">
+            <h2>
+              Merchant: {{merchant.name}}
+            </h2>
+          </div>
+
+          <div class="item item-icon-right item-text-wrap">
+            <i class="icon ion-ios-location"></i> Location: {{merchant.address.city}}, {{merchant.address.state}}
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

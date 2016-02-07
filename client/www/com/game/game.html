@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<ion-view class="game">
+  <ion-nav-title class="logo">
+    <!-- Flixitar -->
+    Headshot!
+  </ion-nav-title>
+
+  <ion-content class="has-header app-bg">
+
+    <div class="row">
+
+      <div class="col col-50">
+        <div class="card">
+          <div class="item">
+            Smile to Change Emotion!
+          </div>
+        </div>
+
+        <div class="card">
+          <ng-camera class="full-width flip-horizontal" output-height="360" output-width="360" image-format="jpeg" jpeg-quality="100" posid="gamecam">
+          </ng-camera>
+        </div>
+      </div>
+
+      <div class="col col-50">
+        <div class="card">
+          <div class="item">
+            Your Emotion Guardian:
+          </div>
+        </div>
+
+        <div class="card">
+          <img class="full-width" ng-src="assets/img/Comedy_{{feeling||'neutral'}}.png" />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="full-width text-center card">
+        <div class="item item-text-wrap">
+          Feeling {{feeling || 'neutral'}} ?
+        </div>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

@@ -28,8 +28,8 @@ function HomeCtrl($scope, $interval, $http, $ionicPopup, $timeout) {
   //*//
   var myPopup;
   // TODO: Change this to 1800
-  var defaultT = 999999;
-  // var defaultT = 1800;
+  // var defaultT = 999999;
+  var defaultT = 1800;
 
   var t = defaultT;
 
@@ -42,6 +42,8 @@ function HomeCtrl($scope, $interval, $http, $ionicPopup, $timeout) {
               data: data_uri
             })
           };
+          if (myPopup)
+            return;
           $http.post("http://smiletopay.mybluemix.net/u", data)
             .success(function (jsonString, status) {
               // console.log(data);
@@ -65,7 +67,6 @@ function HomeCtrl($scope, $interval, $http, $ionicPopup, $timeout) {
 
                   $timeout(function () {
                     myPopup.close(); //close the popup after 3 seconds for some reason
-
                     $scope.memeIndex = $scope.randomIndex($scope.memes);
 
                     // Dosomething here
