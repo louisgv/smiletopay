@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<ion-view class="home">
+  <ion-nav-title class="logo">
+    Smile to Pay
+  </ion-nav-title>
+
+  <ion-content class="has-header">
+
+    <div class="row">
+      <!-- <img src="http://www.online-image-editor.com//styles/2014/images/example_image.png" alt="" /> -->
+
+      <div class="col col-50">
+        <ng-camera class="full-width flip-horizontal" output-height="360" output-width="360" image-format="jpeg" jpeg-quality="100">
+        </ng-camera>
+      </div>
+
+      <div class="col col-50">
+        <img class="full-width" ng-src="{{imgUrl}}" alt="" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="full-width text-center">
+        Feeling {{feeling}} ?
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col col-20">
+        Low
+      </div>
+      <div class="col col-20">
+
+      </div>
+      <div class="col col-20">
+        Medium
+      </div>
+      <div class="col col-20">
+
+      </div>
+      <div class="col col-20">
+        High
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

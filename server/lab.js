@@ -36,6 +36,14 @@ function infoConcept(req, res, next) {
     });
 }
 
+var request = require('superagent');
+
+request.get('http://api.reimaginebanking.com/atms?key=' + key.cobank)
+  .end(function (res) {
+    console.log(res);
+  });
+
+
 function imageHandler(req, res, next) {
   // Get the first_name value from the POSTed data
   res.header('Access-Control-Allow-Origin', '*');
