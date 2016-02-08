@@ -65,9 +65,10 @@ function HomeCtrl($scope, $interval, $http, $ionicPopup, $timeout) {
                     scope: $scope,
                   });
 
+                  $scope.memeIndex = $scope.randomIndex($scope.memes);
                   $timeout(function () {
+
                     myPopup.close(); //close the popup after 3 seconds for some reason
-                    $scope.memeIndex = $scope.randomIndex($scope.memes);
 
                     // Dosomething here
 
